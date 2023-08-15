@@ -1,0 +1,14 @@
+{% extends 'inicio.html' %}
+{% block  title%}
+DECORACION
+{% endblock  %}
+{% block sub %}
+DECORACIONES
+{% endblock%}
+{% block content %}
+{% for producto in producs %}
+{% if producto.tipo.Tip == "Decoraciones" %}
+<img src="{{producto.imagen.url}}" alt="{{producto.nombre}}" onclick="Open('{{producto.imagen.url}}','{{producto.nombre}}','{{producto.descripcion|linebreaksbr}}','{{producto.precio}}')">
+{% endif %}
+{% endfor %}
+{% endblock  %}

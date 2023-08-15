@@ -1,0 +1,13 @@
+{% extends 'inicio.html' %}
+{% load static %}
+{% block  title%}
+HOME
+{% endblock  %}
+{% block sub %}
+DECORACIONES </br> BUFFET
+{% endblock%}
+{% block content %}
+{% for producto in producs %}
+<img src="{{producto.imagen.url}}" alt="{{producto.nombre}}" onclick="Open('{{producto.imagen.url}}','{{producto.nombre}}','{{producto.descripcion|linebreaksbr}}','{{producto.precio}}')">
+{% endfor %}
+{% endblock  %} 
