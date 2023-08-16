@@ -8,6 +8,7 @@ def Historial(request):
 #Pagina de Inicio
 def UPdate(request):
     return render(request, "update.html",{})
+
 def Home(request):
     list_producto=catalogo.objects.all()
     return render(request,"home.html",{"producs":list_producto})

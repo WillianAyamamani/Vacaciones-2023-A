@@ -70,7 +70,7 @@ ROOT_URLCONF = 'PWEB.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['/home/francis/Documentos/Vacaciones-2023-A/DJANGO/lab7/PWEB/Decoraciones/Templates'],
+        'DIRS': ['/home/francis/Documentos/Vacaciones-2023-A/DJANGO/PWEB/Decoraciones/Templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
