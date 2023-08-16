@@ -8,7 +8,7 @@ DECORACIONES
 {% block content %}
 {% for producto in producs %}
 {% if producto.tipo.Tip == "Decoraciones" %}
-<img src="{{producto.imagen.url}}" alt="{{producto.nombre}}" onclick="Open('{{producto.imagen.url}}','{{producto.nombre}}','{{producto.descripcion|linebreaksbr}}','{{producto.precio}}')">
+<img src="{{producto.imagen.Imagen.url}}" alt="{{producto.nombre}}" onclick="Open('{{producto.imagen.Imagen.url}}','{{producto.nombre}}','{{producto.descripcion|linebreaksbr}}','{{producto.precio}}')">
 {% endif %}
 {% endfor %}
 {% endblock  %}

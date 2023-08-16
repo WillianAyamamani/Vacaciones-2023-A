@@ -1,0 +1,5 @@
+/entorno/
+/migrations/
+/__pycache__/
+*.dot
+*.png

@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     {% load static %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Gasoek+One&display=swap" rel="stylesheet">
@@ -22,22 +23,22 @@
         </header> 
         <nav>
             <ul id="barra">
-                <li><a href="/">Home</a></li>
+                <li><a href="/"> <i class="fas fa-home"></i></a></li>
                 <li><a href="/Bebidas/">Bebidas</a></li>
                 <li><a href="/Bocaditos/">Bocaditos</a></li>
                 <li><a href="/Equipos/">Equipos</a></li>
-                <li><a href="/Decoraciones/">Decoraciones</a></li>
+                <li><a href="/Decoraciones/">Deco</a></li>
                 {% if not user.is_authenticated %}
-                <li><a href="/Usuario/Ingreso/">Acceder</a></li>
+                <li><a href="/accounts/login/">Acceder</a></li>
                 {% else %}
-                    {% if user.is_superuser %}
+                    {% if user.usuario_admin %}
                         <li><a href="/admin/"><i class="fas fa-user"></i>-ADMINISTRAR</a></li>
                         <li><a href="/admin/"><i class="fas fa-shopping-cart"></i>PEDIDOS</a></li>
-                        <li><a href="/Usuario/salida/"><i class="fas fa-power-off"></i></a></li>
+                        <li><a href="{% url 'logout' %}"><i class="fas fa-power-off"></i></a></li>
                     {% else %}
                         <li class="nav-item"><a class="nav-link" href="/Usuario/lista/"><i class="fas fa-user"></i>U</a></li>
-                        <li><a href="/Usuario/Contrato/">Contrato</a></li>
-                        <li><a href="/Usuario/salida/"><i class="fas fa-power-off"></i></a></li>
+                        <li><a href="{% url 'usuario:descargar_pdf'%}" id="btn-descargar">CONTRATAR</a></li>
+                        <li><a href="{% url 'logout' %}"><i class="fas fa-power-off"></i></a></li>
                     {% endif %}
                 {% endif %}
             </ul>
@@ -49,13 +50,17 @@
             <input type="hidden" name="nombre" id="nombre_input">
             <input type="hidden" name="descripcion" id="descripcion_input">
             <input type="hidden" name="precio" id="precio_input">
+            <input type="hidden" name="categoria" id="categoria">
             <section class="zoom" id="zoom">
                 <img src="" id="zImagen">
                 <div class="at" id="at">
                     <p id="nombre"></p>
                     <p id="descripcion"></p>
                     <p id="precio"></p>
-                    {% if not user.is_superuser and user.is_authenticated %}
+                    <p id="Abe"></p>
+                    <p>Cantidad:</p>
+                    <input type="number" id="cantidad" name="cantidad" required>
+                    {% if not user.usuario_admin and user.is_authenticated %}
                     <button type="submit"><i class="fas fa-shopping-cart" style="background-color:rgb(255, 115, 0);"></i></button>
                     {% endif %}
                 </div>
@@ -93,5 +98,9 @@
             </div>
         </footer>
         <script src="{% static 'Decoracions/js/index.js' %}"></script>
+        <script>
+            const descargarPDFURL = "/Usuario/descargar_pdf/";
+        </script>
+          
 </body>
 </html>

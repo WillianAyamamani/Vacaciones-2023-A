@@ -14,7 +14,7 @@ PROFORMA </br>
     <div id="lista">
         {% for producto in productos %}
             <div id="articulos">
-                <p id="nombre">{{producto.nombre}}</p>
+                <p id="nombre">{{producto.nombre}} : {{producto.cantidad}}</p>
                 <img src= {{producto.rutaI}} alt="{{producto.nombre}}">
                 <p id="precio">{{ producto.precio }}<a href="/Usuario/Borrar/{{producto.id}}/"><i class="fas fa-trash-alt"></i></a></p>
             </div>

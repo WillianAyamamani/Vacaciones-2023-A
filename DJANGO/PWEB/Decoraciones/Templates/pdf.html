@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Reporte PDF</title>
+</head>
+<body>
+    <h1>Bienvenido, {{ usuario }}</h1>
+    <h2>Productos del carrito:</h2>
+    <ul>
+        {% for producto in productos %}
+            <li>{{ producto.nombre }} - {{ producto.precio }} - {{producto.cantidad}}</li>
+        {% endfor %}
+    </ul>
+    <p>Total: {{ total }}</p>
+</body>
+</html>
