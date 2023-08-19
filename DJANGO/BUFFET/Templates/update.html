@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/all.css' %}">
+</head>
+<body id="all-body">
+{% include 'Head.html' %}
+<div id="ventana">
+{% include 'login.html' %}
+</div>
+{% include 'Footer.html' %}
+</body>
+<script src="{% static 'js/all.js' %}"></script>
+</html>
