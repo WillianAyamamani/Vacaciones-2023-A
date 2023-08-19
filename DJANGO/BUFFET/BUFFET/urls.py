@@ -20,6 +20,7 @@ from Usuario import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('login/',views.Login.as_view(),name="login"),
+    path('logout/', views.Logout, name="logout"),
     #urls >> BUFFETApp
     path('BUFFET/', include("BUFFETApp.urls")),
 ]
